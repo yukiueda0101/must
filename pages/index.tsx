@@ -1,6 +1,7 @@
 import { useAllTasks } from "@hooks";
+import { WithAuth } from "@/layouts";
 
-export default function Index() {
+const IndexPage = () => {
   const { tasks } = useAllTasks();
 
   return (
@@ -12,4 +13,9 @@ export default function Index() {
       ))}
     </>
   );
-}
+};
+
+// @ts-ignore
+IndexPage.getLayout = (page) => <WithAuth>{page}</WithAuth>;
+
+export default IndexPage;
